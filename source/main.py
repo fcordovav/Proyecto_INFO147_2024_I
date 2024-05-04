@@ -42,6 +42,6 @@ def predict_clothing(image_path):
         return "Poca ropa"
 
 # Ejemplo de uso
-image_path = 'source/prueba.jpg'
+image_path = 'prueba.jpg'
 result = predict_clothing(image_path)
 print(result)
