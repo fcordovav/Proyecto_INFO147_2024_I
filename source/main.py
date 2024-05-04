@@ -4,7 +4,7 @@ from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, Flatten, Conv2D, MaxPooling2D
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
-# Cargar el conjunto de datos de imágenes
+# Cargar el conjunto de datos de imágenesclear
 train_datagen = ImageDataGenerator(rescale=1./255)
 train_generator = train_datagen.flow_from_directory(
     'images',
@@ -28,7 +28,7 @@ model = Sequential([
 model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy'])
 
 # Entrenar el modelo
-model.fit(train_generator, epochs=10)
+model.fit(train_generator, epochs=1000)
 
 # Función para predecir si una persona tiene mucha ropa o no
 def predict_clothing(image_path):
@@ -42,6 +42,6 @@ def predict_clothing(image_path):
         return "Poca ropa"
 
 # Ejemplo de uso
-image_path = 'source/prueba.jpg'
+image_path = 'prueba.jpg'
 result = predict_clothing(image_path)
 print(result)
