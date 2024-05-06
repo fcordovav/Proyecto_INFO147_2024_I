@@ -49,5 +49,5 @@ def rename_files(folder_path):
 
 # Ejemplo de uso
 if __name__ == "__main__":
-    folder_path = "./mucha"
+    folder_path = "./imagenes_entrenamiento/mediana"
     rename_files(folder_path)
