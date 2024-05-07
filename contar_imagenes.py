@@ -6,7 +6,7 @@ def contar_imagenes(ruta_carpeta):
     # Recorre todos los archivos en la carpeta
     for archivo in os.listdir():
         # Verifica si el archivo es una imagen según el sistema operativo
-        if os.path.isfile(archivo) and any(archivo.lower().endswith(ext) for ext in (".jpg", ".avif", ".png", ".webp")):
+        if os.path.isfile(archivo) and any(archivo.lower().endswith(ext) for ext in (".jpg", ".avif", ".png", ".webp", "jpeg")):
             cantidad_imagenes += 1
     
     return cantidad_imagenes

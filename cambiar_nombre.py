@@ -30,7 +30,7 @@ def rename_files(folder_path):
         # Verificar si es un archivo regular
         if os.path.isfile(file_path):
             # Obtener la extensión del archivo
-            file_ext = os.path.splitext(file_name)[1]
+            _, file_ext = os.path.splitext(file_name)
             # Incrementar el contador
             last_used_number += 1
             # Construir el nuevo nombre del archivo
@@ -49,5 +49,5 @@ def rename_files(folder_path):
 
 # Ejemplo de uso
 if __name__ == "__main__":
-    folder_path = "./imagenes_entrenamiento/poca"
+    folder_path = "./imagenes_entrenamiento/mucha"
     rename_files(folder_path)
