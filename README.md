@@ -3,7 +3,8 @@
 # Requerimientos
 
 - Python 3.10.x de preferencia.  
-- Jupyter Notebook.  
+- Jupyter Notebook.
+- Instalar torch.  
 ```
 pip install torch torchvision torchaudio
 ```  
