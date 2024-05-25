@@ -11,8 +11,8 @@ df = pd.read_excel(archivo_excel)
 # Filtrar las filas con valor 0 en la columna 'PASAJEROS'
 df_filtrado = df[df['PASAJEROS'] != 0]
 
-# Eliminar las columnas 'PAX_LIB', 'CAR_LIB' y 'CORREO'
-columnas_a_eliminar = ['PAX_LIB', 'CAR_LIB', 'CORREO']
+# Eliminar las columnas desde 'ORIG_2_N' hasta 'OPER_2'
+columnas_a_eliminar = df.columns[df.columns.get_loc('ORIG_2_N'):df.columns.get_loc('OPER_2')+1]
 df_filtrado = df_filtrado.drop(columns=columnas_a_eliminar)
 
 # Guardar el DataFrame filtrado en un nuevo archivo Excel con extensión .xlsx
