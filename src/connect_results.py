@@ -46,9 +46,10 @@ for i in range (12):
     prom = 0
 
 
+df["PESO_P_AVION"] = 0
 df["Exceso_peso_kg"] = False
 df["Exceso_peso_extra_kg"] = False
-
+df["PESO_EXTRA_AVION"] = 0
 
 for i in range(12):
     mes = Months[i]
@@ -60,11 +61,21 @@ for i in range(12):
         carga_ajustada = (row["CARGA (Ton)"] * 1000) / 31 / 2 
         promedio_ajustado = promedio_mes - carga_ajustada
         num_pasj = len(df_resultados)
-        promedio_ajustado = (num_pasj*promedio_ajustado)/(random.randint(14, 20)*14)
+        promedio_ajustado = (num_pasj * promedio_ajustado) / (random.randint(14, 20) * 14)
+
+        peso_extra_avion = peso_kg_extra_total - promedio_ajustado
+
+        peso_extra_avion = max(0, peso_extra_avion)
+
+        peso_extra_avion = int(peso_extra_avion)
+
+        peso_p_avion = max(0, peso_kg_total - promedio_ajustado)
+        peso_p_avion = int(peso_p_avion)
 
         df.loc[index, "Exceso_peso_kg"] = peso_kg_total > promedio_ajustado
         df.loc[index, "Exceso_peso_extra_kg"] = peso_kg_extra_total > promedio_ajustado
-
+        df.loc[index, "PESO_EXTRA_AVION"] = peso_extra_avion
+        df.loc[index, "PESO_P_AVION"] = peso_p_avion
 
 df_filtrado = df.drop(columns=delete_colums)
 archivo_salida_final = os.path.join(folder_1, 'db_Final.xlsx')
